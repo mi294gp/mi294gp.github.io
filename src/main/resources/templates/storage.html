@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="sk">
+<head>
+    <link rel="stylesheet" href="/css/storage.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <title>Stav pamäte</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="title">Nástroj na vizualizáciu sémantickej metódy</a>
+        <div th:if="${@projectController.isLogged()}" class="under_title">
+            <a href="/account" class="user">USER</a>
+            <div class="author">Autor: Matúš Ilčišin</div>
+        </div>
+        <div th:if="not ${@projectController.isLogged()}" class="author">Autor: Matúš Ilčišin</div>
+    </div>
+    <div class="storage">
+        <div class="intro">Stav pamäte</div>
+        <textarea id="textarea1" class="text" rows="20" cols="115" readonly th:text="${@projectController.getAllStates()}"></textarea>
+    </div>
+    <a href="/visualisation" class="back">Späť</a>
+    <button onclick="exportText()" class="export-button">Export</button>
+
+    <script>
+        var lastClickedTextareaId = null;
+        function updateLastClickedTextarea(textareaId) {
+            lastClickedTextareaId = textareaId;
+        }
+        function exportText() {
+            if (lastClickedTextareaId !== null) {
+                var textarea = document.getElementById(lastClickedTextareaId);
+                var text = textarea.value;
+                var blob = new Blob([text], { type: 'text/plain' });
+                var a = document.createElement('a');
+                a.href = window.URL.createObjectURL(blob);
+                a.download = 'SemanticTool.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                alert("Please click inside a textarea before exporting.");
+            }
+        }
+        document.getElementById('textarea1').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea1');
+        });
+        document.getElementById('exportButton').addEventListener('click', exportText);
+    </script>
+</body>

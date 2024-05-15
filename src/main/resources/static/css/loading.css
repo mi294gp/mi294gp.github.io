@@ -1,0 +1,73 @@
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    html{
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 8px !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size: 16px !important;
+    }
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #5F6FFF;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.header {
+    height: 7vh;
+    background-color: #2E2EAB;
+    color: white;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.under_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.author {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    padding-top: 4.5vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.loading {
+    padding-top: 10vh;
+    width: 20%;
+    height: 20%;
+}

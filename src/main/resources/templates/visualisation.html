@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="sk"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/visualisation.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <title>Vizualizácia</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="title">Nástroj na vizualizáciu sémantickej metódy</a>
+        <div th:if="${@projectController.isLogged()}" class="under_title">
+            <a href="/account" class="user">USER</a>
+            <div class="author">Autor: Matúš Ilčišin</div>
+        </div>
+        <div th:if="not ${@projectController.isLogged()}" class="author">Autor: Matúš Ilčišin</div>
+    </div>
+    <div class="main">
+        <div class="code-title">CODE</div>
+        <textarea id="textarea1" rows="3" cols="150" class="code" readonly th:text="${@projectController.getCode()}"></textarea>
+        <div class="grid">
+            <div class="visual">
+                <div class="visual-intro">VIZUALIZÁCIA RIEŠENIA</div>
+                <span>
+                    <textarea id="textarea2" class="visual-text" rows="14" cols="85" readonly th:text="${@projectController.getPrint()}"></textarea>
+                </span>
+            </div>
+            <div class="export">
+                <button onclick="exportText()" class="export-button">Export</button>
+            </div>
+            <div class="storage">
+                <div class="storage-intro">Stav pamäte</div>
+                <div class="storage-text">
+                    <span th:if="not ${@projectController.isMemory()}" th:text="${@projectController.getState()}"></span>
+                    <span th:if="${@projectController.isMemory()}" th:text="${@projectController.getMemory()}"></span>
+                </div>
+            </div>
+            <a href="/storage" th:if="not ${@projectController.isMemory()}" class="showstorage">Zobraziť všetky predošlé stavy</a>
+            <div class="stack">
+                <div class="stack-intro">Zásobník</div>
+                <div class="stack-text"><span th:text="${@projectController.getStack()}"></span></div>
+            </div>
+            <a th:if="${@projectController.isZero()}" href="/input" class="larrow">
+                <img src="/images/larrow.png" class="larrow-img">
+            </a>
+            <a th:if="not ${@projectController.isZero()}" href="/visualisation/sub" class="larrow">
+                <img src="/images/larrow.png" class="larrow-img">
+            </a>
+            <a th:if="not ${@projectController.isMax()}" href="/visualisation/add" class="rarrow">
+                <img src="/images/rarrow.png" class="rarrow-img">
+            </a>
+            <a th:if="${@projectController.isMax()}" href="/visualisation/fin" class="rarrow">
+                <img src="/images/rarrow.png" class="rarrow-img">
+            </a>
+        </div>
+        <div class="end">
+            <a href="/visualisation/fin" class="skip">Preskočiť riešenie</a>
+            <a href="/input" class="new">Zadať nový vstup</a>
+        </div>
+    </div>
+    <script>
+        var lastClickedTextareaId = null;
+        function updateLastClickedTextarea(textareaId) {
+            lastClickedTextareaId = textareaId;
+        }
+        function exportText() {
+            if (lastClickedTextareaId !== null) {
+                var textarea = document.getElementById(lastClickedTextareaId);
+                var text = textarea.value;
+                var blob = new Blob([text], { type: 'text/plain' });
+                var a = document.createElement('a');
+                a.href = window.URL.createObjectURL(blob);
+                a.download = 'SemanticTool.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                alert("Please click inside a textarea before exporting.");
+            }
+        }
+        document.getElementById('textarea1').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea1');
+        });
+        document.getElementById('textarea2').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea2');
+        });
+        document.getElementById('exportButton').addEventListener('click', exportText);
+    </script>
+</body>

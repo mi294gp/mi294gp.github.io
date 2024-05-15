@@ -1,0 +1,140 @@
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    html{
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 8px !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size: 16px !important;
+    }
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #5F6FFF;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.header {
+    height: 7vh;
+    background-color: #2E2EAB;
+    color: white;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.under_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.author {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 84vh;
+    padding: 3vh;
+}
+
+.intro {
+    font-size: 3em;
+    font-weight: bold;
+    padding-bottom: 6vh;
+}
+
+.login {
+    width: 40vw;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.5vh;
+    border-radius: 2rem;
+}
+
+.username-password {
+    background-color: rgba(102, 117, 255, 0.4);
+    border-radius: 1rem;
+    width: 60%;
+    border: none;
+    cursor: text;
+    margin-top: 1vh;
+    padding: 1vh 1.5vw;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.login-button {
+    border-radius: 1rem;
+    width: auto;
+    background-color: #5F6FFF;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+    padding: 1vh 1.5vw;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #b8bfff;
+}
+
+.register {
+    width: 100%;
+    padding-top: 6vh;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.noaccount {
+    font-size: 1em;
+    color: white;
+    align-self: flex-start;
+}
+
+.register-go {
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}

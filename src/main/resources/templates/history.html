@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="sk"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/account.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <title>Nástroj na vizualizáciu sémantickej metódy</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="title">Nástroj na vizualizáciu sémantickej metódy</a>
+        <div th:if="${@projectController.isLogged()}" class="under_title">
+            <a href="/account" class="user">USER</a>
+            <div class="author">Autor: Matúš Ilčišin</div>
+        </div>
+        <div th:if="not ${@projectController.isLogged()}" class="author">Autor: Matúš Ilčišin</div>
+    </div>
+    <div class="main">
+        <div class="navigation">
+            <a href="/profile" class="profile">Profil</a>
+            <a href="/history" class="profile">História Príkladov</a>
+            <a href="/" class="profile">Domovská stránka</a>
+            <a href="/logout" class="logout">Odhlásiť sa</a>
+        </div>
+        <div class="history">
+            <div th:if="${@projectController.isThere(0)}">
+                <textarea id="textarea1" rows="2" cols="10" readonly th:text="${@projectController.getFromHistory(0)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(0)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(1)}">
+                <textarea id="textarea2" rows="2" cols="10" readonly th:text="${@projectController.getFromHistory(1)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(1)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(2)}">
+                <textarea id="textarea3" rows="2" cols="10" readonly th:text="${@projectController.getFromHistory(2)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(2)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(3)}">
+                <textarea rows="2" id="textarea4" cols="10" readonly th:text="${@projectController.getFromHistory(3)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(3)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(4)}">
+                <textarea rows="2" cols="10" id="textarea5" readonly th:text="${@projectController.getFromHistory(4)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(4)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+        </div>
+        <div class="history">
+            <div th:if="${@projectController.isThere(5)}">
+                <textarea rows="2" cols="10" id="textarea6" readonly th:text="${@projectController.getFromHistory(5)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(5)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(6)}">
+                <textarea rows="2" cols="10" readonly id="textarea7" th:text="${@projectController.getFromHistory(6)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(6)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(7)}">
+                <textarea rows="2" cols="10" id="textarea8" readonly th:text="${@projectController.getFromHistory(7)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(7)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(8)}">
+                <textarea rows="2" cols="10" readonly id="textarea9" th:text="${@projectController.getFromHistory(8)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(8)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+            <div th:if="${@projectController.isThere(9)}">
+                <textarea rows="2" cols="10" readonly id="textarea10" th:text="${@projectController.getFromHistory(9)}" class="history_data"></textarea>
+            </div>
+            <div th:if="not ${@projectController.isThere(9)}">
+                <textarea rows="2" cols="10" readonly class="history_data"></textarea>
+            </div>
+        </div>
+        <button onclick="exportText()" class="export">Export</button>
+    </div>
+    <script>
+        var lastClickedTextareaId = null;
+        function updateLastClickedTextarea(textareaId) {
+            lastClickedTextareaId = textareaId;
+        }
+        function exportText() {
+            if (lastClickedTextareaId !== null) {
+                var textarea = document.getElementById(lastClickedTextareaId);
+                var text = textarea.value;
+                var blob = new Blob([text], { type: 'text/plain' });
+                var a = document.createElement('a');
+                a.href = window.URL.createObjectURL(blob);
+                a.download = 'SemanticTool.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                alert("Please click inside a textarea before exporting.");
+            }
+        }
+        document.getElementById('textarea1').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea1');
+        });
+        document.getElementById('textarea2').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea2');
+        });
+        document.getElementById('textarea3').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea3');
+        });
+        document.getElementById('textarea4').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea4');
+        });
+        document.getElementById('textarea5').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea5');
+        });
+        document.getElementById('textarea6').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea6');
+        });
+        document.getElementById('textarea7').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea7');
+        });
+        document.getElementById('textarea8').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea8');
+        });
+        document.getElementById('textarea9').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea9');
+        });
+        document.getElementById('textarea10').addEventListener('click', function() {
+            updateLastClickedTextarea('textarea10');
+        });
+        document.getElementById('exportButton').addEventListener('click', exportText);
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    html{
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 8px !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size: 16px !important;
+    }
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #5F6FFF;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.header {
+    height: 7vh;
+    background-color: #2E2EAB;
+    color: white;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.under_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.author {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 84vh;
+    padding: 3vh;
+    padding-left: 5vw;
+    align-items: flex-end;
+}
+
+.change{
+    border-radius: 1.5rem;
+    background-color: white;
+    color: #5F6FFF;
+    border: none;
+    padding: 1vh 1.5vw;
+    cursor: pointer;
+    margin-left: 6vw;
+    font-weight: bold;
+}
+
+.change:hover {
+    background-color: #eaecff;
+}
+
+.input {
+    width: 76vw;
+    height: 30vh;
+    background-color: white;
+    padding: 1vh;
+    border-radius: 2rem;
+    margin-bottom: 3vh;
+}
+
+.input-intro {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #5F6FFF;
+}
+
+.input-text {
+    font-size: 1em;
+    color: #5F6FFF;
+}
+
+textarea{
+    resize: none;
+    margin-left: 1vw;
+    border: none;
+}
+
+::placeholder{
+    color: #5f6fff63;
+}
+
+.storage {
+    width: 38vw;
+    height: 30vh;
+    background-color: white;
+    padding: 1vh;
+    border-radius: 2rem;
+    margin-bottom: 12vh;
+}
+
+.storage-intro {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #5F6FFF;
+}
+
+.storage-text {
+    font-size: 1em;
+    color: #5f6fff;
+    padding-left: 0.5vw;
+}
+
+.continue {
+    border-radius: 1rem;
+    background-color: white;
+    color: #5F6FFF;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+    width: 15vw;
+}
+
+.continue:hover {
+    background-color: #eaecff;
+}
+
+a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}

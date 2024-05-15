@@ -1,0 +1,22 @@
+B ::= 'true' | 'false' | '¬' B |
+      B '∧' B | B '∨' B | '(' B ')' | BE
+
+BE ::= E '==' E | E '≠' E |
+       E '≤' E | E '<' E | E '>' E |
+       E '≥' E
+
+S ::= X ':=' E | 'skip' | S ';' S |
+      'if' B 'then' S 'else' S |
+      'while' B 'do' S |
+      'repeat' S 'until' B |
+      'for' X ':=' E 'to' E 'do' S
+
+E ::= T | E + T | E - T			E ::= T ( '+' | '-' T)*
+
+T ::= F | T * F | T / F			T ::= F ( '*' | '/' F)*
+
+F ::= N | X | '(' E ')'			F ::= N | X | '(' E ')'
+
+X ::= LETTER (LETTER | DIGIT)*
+
+N ::= DIGIT+

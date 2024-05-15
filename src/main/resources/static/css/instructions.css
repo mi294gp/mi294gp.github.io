@@ -1,0 +1,103 @@
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    html{
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 8px !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size: 16px !important;
+    }
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #5F6FFF;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.header {
+    height: 7vh;
+    background-color: #2E2EAB;
+    color: white;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.under_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.author {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 84vh;
+    padding: 3vh;
+    align-items: center;
+}
+
+ol {
+    padding-top: 6vh;
+    padding-bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+ol li {
+    text-align: center;
+    max-width: 30vw;
+    font-size: 1.5em;
+    padding-top: 3vh;
+}
+
+.continue {
+    border-radius: 1rem;
+    background-color: white;
+    color: #5F6FFF;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+}
+
+.continue:hover {
+    background-color: #eaecff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}

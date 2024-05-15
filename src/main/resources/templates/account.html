@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="sk"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/account.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <title>Nástroj na vizualizáciu sémantickej metódy</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="title">Nástroj na vizualizáciu sémantickej metódy</a>
+        <div th:if="${@projectController.isLogged()}" class="under_title">
+            <a href="/account" class="user">USER</a>
+            <div class="author">Autor: Matúš Ilčišin</div>
+        </div>
+        <div th:if="not ${@projectController.isLogged()}" class="author">Autor: Matúš Ilčišin</div>
+    </div>
+    <div class="main">
+        <div class="navigation">
+            <a href="/profile" class="profile">Profil</a>
+            <a href="/history" class="profile">História Príkladov</a>
+            <a href="/" class="profile">Domovská stránka</a>
+            <a href="/logout" class="logout">Odhlásiť sa</a>
+        </div>
+    </div>

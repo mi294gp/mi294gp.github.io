@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
+  <title>Prihlásenie</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="title">Nástroj na vizualizáciu sémantickej metódy</a>
+        <div th:if="${@projectController.isLogged()}" class="under_title">
+            <a href="/account" class="user">USER</a>
+            <div class="author">Autor: Matúš Ilčišin</div>
+        </div>
+        <div th:if="not ${@projectController.isLogged()}" class="author">Autor: Matúš Ilčišin</div>
+    </div>
+    <div class="main">
+        <div class="intro">PRIHLÁSENIE</div>
+        <form class="login" action="/toLogin">
+            <input type="text" name="login" placeholder="Prihlasovacie meno" class="username-password"></input>
+            <input type="password" name="password" placeholder="Heslo" onmouseover="this.type='text'" onmouseout="this.type='password'" class="username-password"></input>
+            <input type="submit" value="Prihlásiť sa" class="login-button button--primary"></input>
+        </form>
+        <div class="register">
+            <div class="noaccount">Ešte nemáte účet?</div>
+            <a href="/register"><div class="register-go">Zaregistrovať sa</div></a>
+        </div>
+    </div>
+</body>

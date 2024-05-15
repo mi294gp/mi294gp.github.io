@@ -1,0 +1,290 @@
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    html{
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    html{
+        font-size: 8px !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    html{
+        font-size: 16px !important;
+    }
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #5F6FFF;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.header {
+    height: 7vh;
+    background-color: #2E2EAB;
+    color: white;
+    padding: 1.5vh;
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.under_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.author {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 84vh;
+    padding: 3vh;
+}
+    
+    @media only screen and (min-width: 768px) and (max-width: 1199px)  {
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.5fr 1fr;
+            grid-template-rows: 12vh 4.5vh 6vh 6vh 4.5vh 6vh;
+            grid-template-areas:
+            "vis vis . exp"
+            "vis vis . stor"
+            "vis vis . stor"
+            "vis vis . showstor"
+            "vis vis . stack"
+            "larr rarr . stack"
+            ;
+            gap: 3vh 2.2vw;
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 0.5fr 1fr 1fr;
+            grid-template-rows: 10vh 5vh 5vh 6.5vh 5vh 5vh;
+            grid-template-areas:
+            "exp . vis vis"
+            "stor . vis vis"
+            "stor . vis vis"
+            "showstor . vis vis"
+            "stack . . ."
+            "stack . larr rarr"
+            ;
+            gap: 1.5vh 3vw;
+        }
+    }
+    @media only screen and (min-width: 1200px) {
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.5fr 1fr;
+            grid-template-rows: 12vh 4.5vh 6vh 6vh 4.5vh 8vh;
+            grid-template-areas:
+            "vis vis . exp"
+            "vis vis . stor"
+            "vis vis . stor"
+            "vis vis . showstor"
+            "vis vis . stack"
+            "larr rarr . stack";
+            gap: 3vh 2.2vw;
+        }
+    }
+
+.visual {
+    grid-area: vis;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1vh 1.5vw;
+}
+
+.export {
+    grid-area: exp;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.export-button {
+    width: 30%;
+    height: 30%;
+    border: none;
+    font-weight: bold;
+    color: #5F6FFF;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.storage {
+    grid-area: stor;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1vh 1.5vw;
+}
+
+.showstorage {
+    grid-area: showstor;
+    background-color: white;
+    font-size: 1rem;
+    color: #5F6FFF;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2rem;
+    padding: 1.5vh;
+}
+
+.showstorage:hover {
+    background-color: #eaecff;
+}
+
+.stack {
+    grid-area: stack;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1vh 1.5vw;
+}
+
+.larrow {
+    display: flex;
+    flex-direction: column;
+    grid-area: larr;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+}
+
+.larrow img {
+    width: 80%;
+    height: 100%;
+}
+
+.rarrow {
+    grid-area: rarr;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.rarrow img {
+    width: 80%;
+    height: 100%;
+}
+
+.visual-intro {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5F6FFF;
+}
+
+.stack-intro {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5F6FFF;
+}
+
+.storage-intro {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5F6FFF;
+}
+
+.visual-text {
+    font-size: 1rem;
+    color: #5f6fff;
+}
+
+.stack-text {
+    font-size: 1rem;
+    color: #5f6fff;
+}
+
+.storage-text{
+    font-size: 1rem;
+    color: #5f6fff;
+}
+
+.end {
+    width: 100%;
+    padding-top: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.skip {
+    border-radius: 1rem;
+    background-color: white;
+    color: #5F6FFF;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+}
+
+.new {
+    border-radius: 1rem;
+    background-color: white;
+    color: #5F6FFF;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+}
+
+.new:hover {
+    background-color: #eaecff;
+}
+
+.skip:hover {
+    background-color: #eaecff;
+}
+
+textarea{
+    resize: none;
+    border: none;
+}
+
+.code-title{
+    padding-left: 1.5vw;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.code{
+    padding-left: 1.5vw;
+    font-size: 1rem;
+    margin-bottom: 3vh;
+    border-radius: 1rem;
+    color: #5F6FFF;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
